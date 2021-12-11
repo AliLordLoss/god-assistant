@@ -32,13 +32,11 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/pwa',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
-  ],
+  modules: [],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
