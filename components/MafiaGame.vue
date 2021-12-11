@@ -243,8 +243,8 @@ export default {
       return this.$store.getters.inGamePeople.filter(
         (name) =>
           name === this.$store.state.game.names.godfatherName ||
-          name === this.$store.state.game.names.dr_lecterName ||
-          !this.$store.state.game.names.mafiaNames.includes(name)
+          (this.$store.state.game.lecterSelfSavesLeft && name === this.$store.state.game.names.dr_lecterName) ||
+          this.$store.state.game.names.mafiaNames.includes(name)
       )
     },
 

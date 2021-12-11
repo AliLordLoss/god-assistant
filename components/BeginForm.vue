@@ -156,6 +156,21 @@
             />
           </v-col>
         </v-row>
+        <v-row justify="space-around">
+          <v-checkbox
+            v-model="game.nums.judge"
+            :disabled="!game.nums.judge && disableAll"
+            label="شهردار"
+          />
+          <v-col cols="6">
+            <v-text-field
+              v-model="game.names.judgeName"
+              :disabled="!game.nums.judge"
+              label="نام بازیکن:"
+              outlined
+            />
+          </v-col>
+        </v-row>
         <v-row
           v-for="j in game.nums.citizen + 1"
           :key="`citizen ${j}`"
@@ -207,6 +222,7 @@ export default {
           bodyguard: 0,
           sniper: 0,
           hypnotist: 0,
+          judge: 0,
           citizen: 0,
         },
         names: {
@@ -219,6 +235,7 @@ export default {
           bodyguardName: '',
           sniperName: '',
           hypnotistName: '',
+          judgeName: '',
           citizenNames: [''],
         },
       },

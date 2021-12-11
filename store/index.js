@@ -82,7 +82,7 @@ export const actions = {
 
     if (getters.getRole(mafiaTarget) === 'bodyguard' && bodyguardShield) {
       bodyguardShield = false
-    } else if (mafiaTarget !== nurseTarget) {
+    } else if (mafiaTarget && mafiaTarget !== nurseTarget) {
       lastNightDeads.push(mafiaTarget)
       commit('ADD_DEAD', { name: mafiaTarget })
     }
@@ -97,6 +97,7 @@ export const actions = {
     ) {
       godfatherShield = false
     } else if (
+      sniperTarget &&
       sniperTarget !== lecterTarget &&
       (getters.getRole(sniperTarget) === 'godfather' ||
         getters.getRole(sniperTarget) === 'dr_lecter' ||
@@ -112,8 +113,7 @@ export const actions = {
     if (bodyguardAbility && bodyguardAbilityLeft) bodyguardAbilityLeft--
 
     if (nurseTarget === state.game.names.nurseName) nurseSelfSavesLeft = 0
-    if (lecterSelfSavesLeft === state.game.names.dr_lecterName)
-      lecterSelfSavesLeft = 0
+    if (lecterTarget === state.game.names.dr_lecterName) lecterSelfSavesLeft = 0
 
     commit('UPDATE_GAME', {
       bodyguardShield,
